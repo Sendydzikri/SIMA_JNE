@@ -17,16 +17,6 @@
 
 <!-- AdminLTE for demo purposes -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-
-<script>
-		
-	$(document).(function (){
-
-		alert("abc");
-
-	});
-
-</script>
-
+<script src="<?= base_url('assets/template/dist/js/pages/dashboard2.js')?>"></script>
 </body>
 </html>

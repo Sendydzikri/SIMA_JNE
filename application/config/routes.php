@@ -53,7 +53,12 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+//ROUTE UNTUK KELOLA USER
+$route['kelola_user'] = 'manager/kelola_user/c_dashboard/index';
+$route['kelola_data_user'] = 'manager/kelola_user/c_data_user/index';
+$route['kelola_data_user/tambah'] = 'manager/kelola_user/c_data_user/tambah';
 
-$route['kelola_user'] = 'admin/kelola_user/c_dashboard/index';
-$route['kelola_data_user'] = 'admin/kelola_user/c_data_user/index';
-$route['kelola_data_user/tambah'] = 'admin/kelola_user/c_data_user/tambah';
+//ROUTE UNTUK KELOLA PROFILE
+$route['profile'] = 'profile/c_profile/index';
+$route['kelola_data_user'] = 'manager/kelola_user/c_data_user/index';
+$route['kelola_data_user/tambah'] = 'manager/kelola_user/c_data_user/tambah';

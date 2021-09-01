@@ -37,5 +37,17 @@
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
   });
 </script>
+
+<script>
+  $(document).ready(function(){
+
+
+      $('.btn-warning').on('click',function(){
+        $('#editData').modal('show'); 
+      });
+
+  });
+
+</script>
 </body>
 </html>
