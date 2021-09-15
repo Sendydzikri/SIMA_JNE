@@ -181,7 +181,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
-                Kelola User
+                Profile
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -189,13 +189,13 @@
               <li class="nav-item">
                 <a href="<?= base_url('kelola_data_user') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data User</p>
+                  <p>Info Pribadi</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Tambah User</p>
+                  <p>Keamanan</p>
                 </a>
               </li>
             </ul>

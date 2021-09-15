@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class c_profile extends CI_Controller {
+class c_profile_keamanan extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -29,7 +29,7 @@ class c_profile extends CI_Controller {
 		
 		$this->load->view('profile/template/header');
 		$this->load->view('profile/template/sidenav');		
-		$this->load->view('profile/v_profile');
+		$this->load->view('profile/v_profile_keamanan');
 		$this->load->view('profile/template/footer');
 		$this->load->view('profile/template/__scriptData');
 
