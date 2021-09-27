@@ -29,8 +29,9 @@
         <!-- /.col -->  
 
     </div>
+    <form action="">
     <div class="container">
-        <table class="table " style="border: 0;" width="100%">
+        <table class="table" style="border: 0;" width="100%">
           <ol class="breadcrumb-item active">Data Pribadi</ol>
           <tr>
             <td> 
@@ -42,7 +43,7 @@
             <td>
               <div class="form-group">
                 <label for="">NIK | Nomor Induk Karyawan</label>
-                <input type="text" name="nama" placeholder="masukan nama" class="form-control">
+                <input type="text" name="nik" placeholder="masukan nama" class="form-control">
               </div>
             </td>
           </tr>
@@ -64,13 +65,13 @@
             <td>
               <div class="form-group">
                 <label for="">Jabatan</label>
-                <input type="text" name="nama" placeholder="masukan nama" class="form-control">
+                <input type="text" name="jabatan" placeholder="masukan nama" class="form-control">
               </div>
             </td>
             <td>
               <div class="form-group">
                 <label for="">Divisi</label>
-                <input type="text" name="nama" placeholder="masukan nama" class="form-control">
+                <input type="text" name="divisi" placeholder="masukan nama" class="form-control">
               </div>
             </td>
           </tr>
@@ -81,7 +82,6 @@
                 <textarea name="alamat" id="" cols="30" rows="5" class="form-control"></textarea>
               </div>
             </td>
-          </tr>
           </tr>
           <tr>
             <td colspan="2">
@@ -94,13 +94,13 @@
             <td>
               <div class="form-group">
                 <label for="">Nomor Telepon</label>
-                <input type="text" name="nama" placeholder="masukan nama" class="form-control">
+                <input type="text" name="no_tlp" placeholder="masukan nama" class="form-control">
               </div>
             </td>
             <td>
               <div class="form-group">
                 <label for="">Email</label>
-                <input type="text" name="nama" placeholder="masukan nama" class="form-control">
+                <input type="text" name="email" placeholder="masukan nama" class="form-control">
               </div>
             </td>
           </tr>
@@ -115,23 +115,27 @@
             <td>
               <div class="form-group">
                 <label for="">Username</label>
-                <input type="text" name="nama" placeholder="masukan nama" class="form-control">
+                <input type="text" name="username" placeholder="masukan nama" class="form-control">
               </div>
             </td>
             <td>
               <div class="form-group">
                 <label for="">Password</label>
-                <input type="text" name="nama" placeholder="masukan nama" class="form-control">
+                <input type="text" name="password" placeholder="masukan nama" class="form-control">
               </div>
             </td>
           </tr>
+          <tr>
+            <td colspan="2">
+                <button type="submit" class="btn btn-primary"> Update Data </button>              
+            </td>
+          </tr>
         </table>
-        
-    </div>
 
-    </section>
+    </div>
 
   </div>
 
+</form>
 
- 
+</section>

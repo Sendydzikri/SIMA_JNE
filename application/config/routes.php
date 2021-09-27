@@ -62,3 +62,6 @@ $route['kelola_data_user/tambah'] = 'manager/kelola_user/c_data_user/tambah';
 $route['profile'] = 'profile/c_profile/index';
 $route['kelola_data_user'] = 'manager/kelola_user/c_data_user/index';
 $route['kelola_data_user/tambah'] = 'manager/kelola_user/c_data_user/tambah';
+
+//ROUTE UNTUK KELOLA PENGAJUAN
+$route['user/kelola_data_pengajuan'] = 'user/c_data_pengajuan/index';
