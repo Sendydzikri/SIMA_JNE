@@ -169,11 +169,29 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="<?= base_url('kelola_user'); ?>" class="nav-link active">
+            <?php if($menu == "dashboard"){ ?>
+            <li class="nav-item menu-open">
+            <a href="<?= base_url('kelola_user'); ?>" class="nav-link active">            
+            <?php }else{ ?>
+              <li class="nav-item">
+              <a href="<?= base_url('kelola_user'); ?>" class="nav-link">              
+            <?php }?>
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
+              </p>
+            </a>
+          </li>
+          <?php if($menu == "pengajuan"){ ?>
+          <li class="nav-item menu-open">
+          <a href="<?= base_url('kelola_user'); ?>" class="nav-link active">            
+          <?php }else{ ?>
+            <li class="nav-item">
+            <a href="<?= base_url('kelola_user'); ?>" class="nav-link">              
+          <?php }?>
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Kelola Pengajuan
               </p>
             </a>
           </li>

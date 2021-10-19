@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">  
-          <h1 class="m-0">Kelola Data Pengajuan</h1>
+          
         </div><!-- /.col -->
         <div class="col-sm-6">  
           <ol class="breadcrumb float-sm-right">
@@ -18,6 +18,7 @@
   <section class="content">
 
     <div class="container">
+      <div class="container text-center"> <h2 class="mb-1">Kelola Data Pengajuan</h2> </div>
       <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#tambahData">
         <span class="fa fa-plus"></span> Tambah Pengajuan
       </button>
@@ -29,27 +30,50 @@
           <tr>
             <th>No.</th>
             <th>ID Pengajuan</th>
+            <th>Nama Aset</th>
+            <th>Kategori Aset</th>
             <th>Tanggal Pengajuan</th>
             <th>Status Pengajuan</th>
             <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
+          <?php if($data_pengajuan){?>
           <?php $i=1; foreach($data_pengajuan as $dp){ ?>
 
             <tr>
               <td><?= $i=1; ?></td>
-              <td><?= $dp['id_pengajuan']; ?></td>
-              <td><?= $dp['tgl_pengajuan']; ?></td>
-              <td><?= $dp['username']; ?></td>
-              <td><?= $dp['email']; ?></td>
+              <td class="id_pengajuan"><?= $dp['id_pengajuan']; ?></td>
+              <td class="nama_aset"><?= $dp['nama_aset']; ?></td>
+              <td class="kategori"><?= $dp['kategori']; ?></td>              
+              <td class="tgl_pengajuan"><?= $dp['tgl_pengajuan']; ?></td>
+              <input type="hidden" class="jenis_kategori" value="<?= $dp['jenis_kategori'] ?>">
+              <input type="hidden" class="id_kategori" value="<?= $dp['id_kategori'] ?>">
+              <input type="hidden" class="jumlah_aset" value="<?= $dp['jumlah_aset'] ?>">
+              <input type="hidden" class="harga_aset" value="<?= $dp['harga_aset'] ?>">              
               <td>
-                <a href="<?= base_url('kelola_data_user/hapus/'.$dp['id_user']) ?>" class="btn btn-danger" > <span class="fa fa-trash"></span></a>
-                <button class="btn btn-warning"><span class="fa fa-pen text-white"></span> </button>
+                
+                <?php 
+                  if($dp['status'] == '0'){
+                ?>
+
+                <span class="btn btn-warning text-white"> <b>Menunggu</b> </span>  
+
+                <?php }else{ ?>
+
+                <span class="btn btn-success text-white"> <b>Disetujui</b> </span>  
+
+                <?php }?>
+
+              </td>
+              <td>
+                <button class="btn btn-danger hapus" value="<?= $dp['id_pengajuan'] ?>"><span class="fa fa-trash text-white"></span> </button>
+                <button class="btn btn-warning edit"><span class="fa fa-pen text-white"></span> </button>
               </td>
             </tr>
 
             <?php $i++; }?>
+          <?php }?>
           </tbody>
         </table>          
         <!-- /.col -->
@@ -79,32 +103,37 @@
         </div>
         <div class="modal-body">
           
-          <?php echo form_open('kelola_data_user/tambah'); ?>
+          <?php echo form_open('user/kelola_data_pengajuan/tambah'); ?>
             <div class="form-group">
-              <label for="nama_user">Nama User</label>
-              <input type="text" class="form-control" name="nama_user" placeholder="Masukan Nama User" id="nama_user" required>
-              <?php echo form_error('nama_user'); ?>
+              <label for="alamat">Kategori Aset</label>
+              <select name="kategori" id="kategori" class="form-control">
+                  <option value="" disabled="" selected>-- PILIH KATEGORI --</option>
+                <?php foreach($kategori as $k){ ?>
+                  <option value="<?= $k['kategori'] ?>"> <?= $k['kategori'] ?> </option>
+                <?php }?>
+              </select>
             </div>
             <div class="form-group">
-              <label for="alamat">Alamat</label>
-              <textarea name="alamat" id="alamat" cols="30" rows="3" placeholder="Masukan Alamat" class="form-control"></textarea>
-              <?php echo form_error('alamat'); ?>
+              <label for="alamat">Jenis Aset</label>
+              <select name="id_kategori" id="jenis_kategori" class="form-control data1" required disabled>
+                  <option value="" disabled="" selected>-- PILIH JENIS ASET --</option>
+              </select>
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="emails" class="form-control" name="email" placeholder="example@mail.com" id="email" required>
-              <?php echo form_error('email'); ?>
+              <label for="nama_aset">Nama Aset</label>
+              <input type="text" class="form-control data2" name="nama_aset" placeholder="Masukan Nama Aset" id="nama_aset" required disabled>
+              <?php echo form_error('nama_aset'); ?>
             </div>
             <div class="form-group">
-              <label for="username">Username</label>
-              <input type="text" class="form-control" placeholder="Masukan Username" name="username" id="username" required>
-              <?php echo form_error('username'); ?>
-            </div>
+              <label for="jumlah_aset">Jumlah Aset</label>
+              <input type="number" class="form-control data2" name="jumlah_aset" placeholder="Masukan Jumlah Aset" id="jumlah_aset" required disabled>
+              <?php echo form_error('jumlah_aset'); ?>
+            </div>  
             <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" name="password" id="password" required>
-              <?php echo form_error('password'); ?>
-            </div>
+              <label for="jumlah_aset">Harga Aset</label>
+              <input type="number" class="form-control data2" name="harga_aset" placeholder="Masukan Harga Satuan Dari Aset" id="harga_aset" required disabled>
+              <?php echo form_error('harga_aset'); ?>
+            </div>                        
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -117,8 +146,8 @@
 
 
   //FORM EDIT DATA
-  <div class="modal fade" id="editData" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+  <div class="modal fade bd-example-modal-xl" id="editData" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
@@ -128,32 +157,37 @@
         </div>
         <div class="modal-body">
           
-          <?php echo form_open('kelola_data_user/tambah'); ?>
+        <?php echo form_open('user/kelola_data_pengajuan/edit'); ?>
             <div class="form-group">
-              <label for="nama_user">Nama User</label>
-              <input type="text" class="form-control" name="nama_user" placeholder="Masukan Nama User" id="nama_user" required>
-              <?php echo form_error('nama_user'); ?>
+              <label for="alamat">Kategori Aset</label>
+              <select name="kategori" id="edit_kategori" class="form-control">
+                <option value="" disabled="">-- PILIH KATEGORI --</option>
+                <?php foreach($kategori as $k){ ?>
+                  <option value="<?= $k['kategori'] ?>"> <?= $k['kategori'] ?> </option>
+                <?php }?>
+              </select>
             </div>
             <div class="form-group">
-              <label for="alamat">Alamat</label>
-              <textarea name="alamat" id="alamat" cols="30" rows="3" placeholder="Masukan Alamat" class="form-control"></textarea>
-              <?php echo form_error('alamat'); ?>
+              <label for="alamat">Jenis Aset</label>
+              <select name="id_kategori" id="edit_jenis_kategori" class="form-control data1" required >
+                  <option value="" selected>-- PILIH JENIS ASET --</option>
+              </select>
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="emails" class="form-control" name="email" placeholder="example@mail.com" id="email" required>
-              <?php echo form_error('email'); ?>
+              <label for="nama_aset">Nama Aset</label>
+              <input type="text" class="form-control data2" name="nama_aset" placeholder="Masukan Nama Aset" id="edit_nama_aset" required >
+              <?php echo form_error('nama_aset'); ?>
             </div>
             <div class="form-group">
-              <label for="username">Username</label>
-              <input type="text" class="form-control" placeholder="Masukan Username" name="username" id="username" required>
-              <?php echo form_error('username'); ?>
-            </div>
+              <label for="jumlah_aset">Jumlah Aset</label>
+              <input type="number" class="form-control data2" name="jumlah_aset" placeholder="Masukan Jumlah Aset" id="edit_jumlah_aset" required >
+              <?php echo form_error('jumlah_aset'); ?>
+            </div>  
             <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" name="password" id="password" required>
-              <?php echo form_error('password'); ?>
-            </div>
+              <label for="jumlah_aset">Harga Aset</label>
+              <input type="number" class="form-control data2" name="harga_aset" placeholder="Masukan Harga Satuan Dari Aset" id="edit_harga_aset" required >
+              <?php echo form_error('harga_aset'); ?>
+            </div>                        
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

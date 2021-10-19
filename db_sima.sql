@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2021 at 08:07 AM
+-- Generation Time: Oct 19, 2021 at 08:50 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.22
 
@@ -56,7 +56,9 @@ CREATE TABLE `tbl_kategori_aset` (
 --
 
 INSERT INTO `tbl_kategori_aset` (`id_kategori`, `kategori`, `jenis_kategori`, `nilai_penyusutan`, `masa_manfaat`) VALUES
-('1', 'kendaraan', 'motor', 5.5, 10);
+('1', 'kendaraan', 'motor', 5.5, 10),
+('2', 'kendaraan', 'mobil', 10, 10),
+('3', 'electronic', 'komputer', 30, 5);
 
 -- --------------------------------------------------------
 
@@ -88,6 +90,15 @@ CREATE TABLE `tbl_pengajuan` (
   `total_harga` int(11) NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_pengajuan`
+--
+
+INSERT INTO `tbl_pengajuan` (`id_pengajuan`, `id_user`, `tgl_pengajuan`, `nama_aset`, `id_kategori`, `jumlah_aset`, `harga_aset`, `total_harga`, `status`) VALUES
+('PA-PLXMUL8', '1', '2021-10-08', 'Supra X', '1', 1, 15000000, 15000000, 0),
+('PA-UcFVzfp', '1', '2021-10-08', 'ROG', '3', 2, 25000000, 50000000, 0),
+('PA-wUgdol0', '1', '2021-10-03', 'Mobil ESEMKA', '2', 2, 25000000, 50000000, 0);
 
 -- --------------------------------------------------------
 
@@ -136,6 +147,12 @@ INSERT INTO `tbl_user` (`id_user`, `nama_user`, `alamat`, `email`, `username`, `
 --
 ALTER TABLE `tbl_kategori_aset`
   ADD PRIMARY KEY (`id_kategori`);
+
+--
+-- Indexes for table `tbl_pengajuan`
+--
+ALTER TABLE `tbl_pengajuan`
+  ADD PRIMARY KEY (`id_pengajuan`);
 
 --
 -- Indexes for table `tbl_user`

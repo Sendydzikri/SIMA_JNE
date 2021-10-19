@@ -65,3 +65,6 @@ $route['kelola_data_user/tambah'] = 'manager/kelola_user/c_data_user/tambah';
 
 //ROUTE UNTUK KELOLA PENGAJUAN
 $route['user/kelola_data_pengajuan'] = 'user/c_data_pengajuan/index';
+$route['user/kelola_data_pengajuan/tambah'] = 'user/c_data_pengajuan/tambah';
+$route['user/kelola_data_pengajuan/hapus'] = 'user/c_data_pengajuan/hapus';
+$route['user/kelola_data_pengajuan/ambil_jenis'] = 'user/c_data_pengajuan/ambil_jenis';
