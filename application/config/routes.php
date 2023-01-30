@@ -53,18 +53,24 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-//ROUTE UNTUK KELOLA USER
-$route['kelola_user'] = 'manager/kelola_user/c_dashboard/index';
-$route['kelola_data_user'] = 'manager/kelola_user/c_data_user/index';
-$route['kelola_data_user/tambah'] = 'manager/kelola_user/c_data_user/tambah';
 
 //ROUTE UNTUK KELOLA PROFILE
 $route['profile'] = 'profile/c_profile/index';
 $route['kelola_data_user'] = 'manager/kelola_user/c_data_user/index';
 $route['kelola_data_user/tambah'] = 'manager/kelola_user/c_data_user/tambah';
 
-//ROUTE UNTUK KELOLA PENGAJUAN
+//ROUTE KELOLA PENGAJUAN
 $route['user/kelola_data_pengajuan'] = 'user/c_data_pengajuan/index';
 $route['user/kelola_data_pengajuan/tambah'] = 'user/c_data_pengajuan/tambah';
 $route['user/kelola_data_pengajuan/hapus'] = 'user/c_data_pengajuan/hapus';
 $route['user/kelola_data_pengajuan/ambil_jenis'] = 'user/c_data_pengajuan/ambil_jenis';
+
+//ROUTE UNTUK KELOLA MANAGER
+$route['manager/kelola_data_kategori'] = 'manager/kelola_kategori/c_data_kategori/index';
+$route['manager/kelola_data_kategori/tambah'] = 'manager/kelola_kategori/c_data_kategori/tambah';
+$route['manager/kelola_data_kategori/ubah'] = 'manager/kelola_kategori/c_data_kategori/ubah';
+$route['manager/kelola_data_kategori/hapus'] = 'manager/kelola_kategori/c_data_kategori/hapus';
+
+$route['kelola_user'] = 'manager/kelola_user/c_dashboard/index';
+$route['kelola_data_user'] = 'manager/kelola_user/c_data_user/index';
+$route['kelola_data_user/tambah'] = 'manager/kelola_user/c_data_user/tambah';
